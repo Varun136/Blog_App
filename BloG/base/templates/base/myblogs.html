@@ -1,0 +1,30 @@
+{% extends 'base/main.html' %}
+{% block content %}
+<style>
+
+    .header{
+        margin: 0px 40px;
+    }
+    .blogs{
+        background-color: #D6E4E5;
+        padding: 5px 20px ;
+        margin: 20px;
+    }
+</style>
+<div class="container1">
+    {% if not count.count %}
+    <p>Sorry You dont have any work ,Start creating : <button><a href='{% url "create-blog" %}'>Create</a></button></p>
+    {% else %}
+    <p>Number of works : {{count.count}}</p>
+    <p>Add new Work : <button><a href='{% url "create-blog" %}'>Create</a></button></p>
+    {% for object in blogList %}
+    <div class="blogs">
+        <p>last_updated : {{object.updated_on}}</p>
+        <h2>{{object}} <button><a href="blog-details/{{object.id}}">View</a></button></h2>
+        <p><a href="category/{{object.category_id}}">{{object.category}} <button><a href="comments/{{object.id}}">Comments</a></button></a></p>
+        <p><button><a href="update/{{object.id}}">Update</a></button> <button><a href="delete/{{object.id}}">Delete</a></button></p>
+    </div>
+    {% endfor %}
+    {% endif %} 
+    </div>
+{% endblock %}

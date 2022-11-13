@@ -1,0 +1,41 @@
+{% extends 'base/main.html' %}
+{% block content %}
+<style>
+    .header{
+        margin: 0px 40px;
+    }
+    .blogs{
+        background-color: #F8C4B4;
+        padding: 5px 20px ;
+        margin: 20px 4px;
+    }
+    
+</style>
+
+<div class="header">
+{% if request.user.is_authenticated %}
+<p><a href="logout/">Logout</a></p>
+{% else %}
+<p><a href="login/">LogIn</a>  <a href="register">Register</a></p>
+{% endif %}
+<p>My Blogs : <button><a href="myblogs">Visit</a></button></p>
+<p> Create Your blog : <button><a href="create-blog">Create</a></button></p>
+<div class="container1">
+    <form method="GET">
+            <input type="text" name='search-area' placeholder="Search Blogs"/>
+            <input type="submit" value="search"/>
+    </form>
+</div>
+{% for object in blogList %}
+<div class="blogs">
+    <p>last_updated : {{object.updated_on}}</p>
+    <h2>{{object}} <button><a href="blog-details/{{object.id}}">View</a></button></h2>
+    <p><a href="category/{{object.category_id}}">{{object.category}} <button><a href="comments/{{object.id}}">Comments</a></button></a></p>
+    <p><button><a href="update/{{object.id}}">Update</a></button> <button><a href="delete/{{object.id}}">Delete</a></button></p>
+</div>
+{% endfor %}
+
+</div>
+{% endblock %}
+
+

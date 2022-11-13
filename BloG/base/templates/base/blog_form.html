@@ -1,0 +1,17 @@
+<style>
+    body{
+        background-color: #EFF5F5;
+    }
+    .form{
+        background-color: #D6E4E5;
+    }
+</style>
+
+<h1>Create Your Blog Here</h1>
+<div class="form">
+<form method="POST" acton="">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" value="Create"/>
+</form>
+</div>

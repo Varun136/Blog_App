@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BlogApp</title>
+
+    <style>
+        body{
+            background-color: #FF8787;
+        }
+        a{
+        text-decoration: none;
+        }
+        .header{
+        background-color: #FEBE8C;
+        padding: 5px 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1><a href='{% url "bloglist" %}'>Blog App</a></h1>
+        {% block content %}
+
+        {% endblock content %}
+    </div>
+</body>
+</html>

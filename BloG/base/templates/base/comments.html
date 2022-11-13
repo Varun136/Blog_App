@@ -1,0 +1,18 @@
+<h1>{{title}}</h1>
+{% if not number_of_comments.count %}
+<p>
+    No Comments. 
+</p>
+{% else %}
+<p>Number if Comments : {{number_of_comments.count}}</p>
+<div>
+{% for comment in comments %}
+<div>
+    <p>commented_on : {{comment.created_on}}</p>
+    <p>{{comment.comment}}</p>
+    <p>{{comment.user}}</p>
+</div>
+{% endfor %}
+{% endif %}
+
+</div>

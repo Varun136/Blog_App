@@ -1,0 +1,9 @@
+<h1>{{title}}</h1>
+<p>List of related Blogs</p>
+<div>
+{% for object in objects %}
+    <p>last_updated : {{object.updated_on}}</p>
+    <h2>{{object}}</h2>
+    <p>{{object.category}}</p>
+{% endfor %}
+</div>
